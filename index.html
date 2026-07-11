@@ -208,6 +208,19 @@ header{
 }
 .size-chip b{display:block;color:var(--text);font-size:15px}
 .size-chip.active{border-color:var(--neon);color:var(--text)}
+.xtra-row{display:flex;gap:8px;flex-wrap:wrap}
+.xchip{
+  border:1px solid var(--line);border-radius:10px;background:#0D1220;color:var(--muted);
+  padding:8px 12px;font-size:13.5px;cursor:pointer;font-family:'Inter';transition:all .2s;
+}
+.xchip.active{border-color:var(--neon);color:var(--text);box-shadow:0 0 12px -6px var(--neon)}
+.spec-card{border:1px solid var(--line);border-radius:var(--radius);background:#0D1220;padding:18px 18px 16px;margin-bottom:14px}
+.spec-card h4{font-size:14px;margin:0 0 16px;color:var(--text)}
+.spec-card .ctrl{margin-bottom:16px}
+.spec-price{margin:2px 0 4px}
+.spec-price small{display:block;color:var(--muted);font-size:12px;margin-bottom:2px}
+.spec-price b{font-size:26px;color:var(--text)}
+.sugg-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .bg-row{display:flex;gap:8px}
 .bg-chip{
   flex:1;height:42px;border-radius:10px;cursor:pointer;border:2px solid var(--line);transition:border-color .2s;
@@ -496,6 +509,17 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
             </div>
           </div>
           <div class="ctrl">
+            <label>Элемент рядом с надписью</label>
+            <div class="xtra-row" id="xtraRow">
+              <button class="xchip active" data-x="">Без элемента</button>
+              <button class="xchip" data-x="сердце">♥ Сердце</button>
+              <button class="xchip" data-x="звезда">★ Звезда</button>
+              <button class="xchip" data-x="молния">⚡ Молния</button>
+              <button class="xchip" data-x="стрелка">➤ Стрелка</button>
+              <button class="xchip" data-x="корона">♛ Корона</button>
+            </div>
+          </div>
+          <div class="ctrl">
             <label>Фон превью</label>
             <div class="bg-row" id="bgRow">
               <button class="bg-chip bgc-brick active" data-bg="pv-brick" title="Красный кирпич"></button>
@@ -574,15 +598,47 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
         <div class="gen-controls">
           <div class="ctrl">
             <label>Опишите вывеску своими словами</label>
-            <textarea id="ideaText" placeholder="Например: надпись «Мария Nails» розовым, рядом контур сердца, размер примерно метр в ширину, повесим на стену у ресепшена…"></textarea>
+            <textarea id="ideaText" placeholder="Например: надпись «Мария Nails» розовым, рядом контур сердца, высота букв 20 см…"></textarea>
           </div>
+          <button class="btn btn-neon" id="interpretBtn" style="width:100%;margin-bottom:14px">🪄 Понять идею и рассчитать цену</button>
+
+          <div class="spec-card" id="ideaSpecCard" style="display:none">
+            <h4>Мы поняли вашу идею так — проверьте и поправьте:</h4>
+            <div class="sugg-row" id="suggRow" style="display:none"></div>
+            <div class="ctrl">
+              <label>Текст вывески</label>
+              <input type="text" id="specText" maxlength="40" placeholder="Текст надписи">
+            </div>
+            <div class="ctrl">
+              <label>Цвет свечения</label>
+              <div class="swatches" id="swatchesIdea"></div>
+            </div>
+            <div class="ctrl">
+              <label>Высота букв</label>
+              <div class="size-row" id="specSizeRow">
+                <button class="size-chip" data-size="15"><b>15 см</b>интерьер</button>
+                <button class="size-chip active" data-size="20"><b>20 см</b>витрина</button>
+                <button class="size-chip" data-size="30"><b>30 см</b>фасад</button>
+              </div>
+            </div>
+            <div class="ctrl">
+              <label>Элементы рядом с надписью</label>
+              <div class="xtra-row" id="specXtras"></div>
+            </div>
+            <div class="spec-price">
+              <small>Фиксированная цена под ключ</small>
+              <b id="specPrice">—</b>
+            </div>
+            <button class="btn btn-ghost" id="genIdeaBtn" style="width:100%;margin:12px 0 10px">✨ Сгенерировать эскиз с ИИ <span id="ideaCounter"></span></button>
+            <button class="btn btn-neon" id="orderIdeaBtn" style="width:100%">Заказать по этой цене</button>
+          </div>
+
           <div class="ctrl">
             <label>Телефон для связи</label>
             <input type="tel" id="ideaPhone" placeholder="+7 ___ ___-__-__">
           </div>
-          <button class="btn btn-ghost" id="genIdeaBtn" style="width:100%;margin-bottom:12px">✨ Сгенерировать эскиз с ИИ</button>
-          <button class="btn btn-neon" id="sendIdeaReq" style="width:100%">Отправить идею — макет за 3 часа</button>
-          <p class="pv-note">ИИ-эскиз — это быстрый черновик за минуту. Финальный макет и точную цену дизайнер пришлёт в течение 3 часов в рабочее время.</p>
+          <button class="btn btn-ghost" id="sendIdeaReq" style="width:100%">Отправить идею дизайнеру — макет за 3 часа</button>
+          <p class="pv-note">ИИ понимает описание, показывает цену и эскиз за минуту. Хотите живой взгляд — дизайнер пришлёт финальный макет в течение 3 часов в рабочее время.</p>
         </div>
         <div class="gen-preview">
           <div class="preview-box pv-brick" id="ideaBox">
@@ -791,7 +847,19 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 <script>
 (function(){
   // ---------- состояние ----------
-  var state={text:'Кофейня',font:"'Caveat'",color:'#FF3FA4',size:20,bg:'pv-brick'};
+  var state={text:'Кофейня',font:"'Caveat'",color:'#FF3FA4',size:20,bg:'pv-brick',extra:''};
+
+  // Символы элементов для CSS-превью
+  var XSYM={'сердце':'♥','звезда':'★','молния':'⚡','стрелка':'➤','корона':'♛','луна':'☾','солнце':'☀','цветок':'✿','бриллиант':'◆','нота':'♪','круг':'◯'};
+  // Каталог элементов (метки совпадают с сервером; сервер может прислать и другие ключи)
+  var XCAT={'сердце':'Сердце','звезда':'Звезда','молния':'Молния','стрелка':'Стрелка','корона':'Корона','луна':'Луна','солнце':'Солнце','цветок':'Цветок','бабочка':'Бабочка','губы':'Губы','бриллиант':'Бриллиант','коктейль':'Коктейль','чашка':'Чашка кофе','ножницы':'Ножницы','крылья':'Крылья','лапа':'Лапка','нота':'Нота','облако':'Облако','пальма':'Пальма','рамка':'Рамка вокруг','круг':'Круг вокруг','подчёркивание':'Подчёркивание'};
+  // Класс шрифта для сервера (стиль промпта + коэффициент метража)
+  var FONT_CLASS={"'Caveat'":'script',"'Marck Script'":'script',"'Bad Script'":'script',"'Lobster'":'retro',"'Comfortaa'":'sans',"'Montserrat Alternates'":'sans',"'Russo One'":'display',"'Unbounded'":'display'};
+  var WALL_NAMES={
+    'pv-brick':'красная кирпичная стена','pv-brickw':'белая кирпичная стена',
+    'pv-wood':'деревянная стена','pv-tile':'стена из керамической плитки',
+    'pv-conc':'бетонная стена','pv-dark':'тёмная оштукатуренная стена'
+  };
   var API='https://neonika.up.railway.app';
   var TG_LINK='https://t.me/+79281293081';
   // TODO: вставьте вашу личную ссылку из приложения MAX (Профиль → QR-код → Поделиться)
@@ -808,20 +876,29 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 
   // --- серверный расчёт цены с локальным фоллбэком ---
   var priceTimer=null;
+  function localPrice(text,size,extras){
+    var chars=text.replace(/\s/g,'').length||1;
+    var per={15:340,20:480,30:720}[size]||480;
+    var perX={15:520,20:700,30:1050}[size]||700;
+    var total=Math.max(3000,1800+chars*per+(extras?extras.length:0)*perX);
+    return Math.round(total/100)*100;
+  }
   function calcPriceFallback(){
-    var chars=state.text.replace(/\s/g,'').length||1;
-    var per={15:340,20:480,30:720}[state.size];
-    var total=Math.max(3000,1800+chars*per);
-    return '≈ '+fmt(Math.round(total/100)*100)+' ₽';
+    return '≈ '+fmt(localPrice(state.text,state.size,state.extra?[state.extra]:[]))+' ₽';
   }
   function calcPrice(){return calcPriceFallback()}
+  function specOfTab1(){
+    return {text:state.text,color:state.color,font:FONT_CLASS[state.font]||'script',
+            height_cm:state.size,extras:state.extra?[state.extra]:[]};
+  }
   function fetchServerPrice(){
     clearTimeout(priceTimer);
     priceTimer=setTimeout(function(){
       var chars=state.text.replace(/\s/g,'').length||1;
       var per={15:340,20:480,30:720}[state.size];
       fetch(API+'/price',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({chars:chars,per_char:per,base:1800,min:3000})
+        // spec — новый формат; chars/per_char — совместимость со старым сервером
+        body:JSON.stringify({spec:specOfTab1(),chars:chars,per_char:per,base:1800,min:3000})
       }).then(function(r){return r.json()}).then(function(d){
         if(d.price) priceEl.textContent=fmt(d.price)+' ₽';
       }).catch(function(){});
@@ -848,13 +925,11 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     photoBtn.classList.add('loading');photoBtn.querySelector('span').textContent='';
     photoBtn.childNodes[0].textContent='⏳ Генерируем фото… ';
     try{
-      var bgNames={
-        'pv-brick':'красная кирпичная стена','pv-brickw':'белая кирпичная стена',
-        'pv-wood':'деревянная стена','pv-tile':'стена из керамической плитки',
-        'pv-conc':'бетонная стена','pv-dark':'тёмная оштукатуренная стена'
-      };
+      var wall=WALL_NAMES[state.bg]||'кирпичная стена';
+      var sp=specOfTab1();sp.wall=wall;
       var r=await fetch(API+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({text:state.text,color:state.color,wall:bgNames[state.bg]||'кирпичная стена'})
+        // spec — новый формат; text/color/wall — совместимость со старым сервером
+        body:JSON.stringify({spec:sp,text:state.text,color:state.color,wall:wall})
       });
       var d=await r.json().catch(function(){return{}});
       if(d.error){toast(d.error);photoBtn.childNodes[0].textContent='📸 Фотопревью на реальной стене ';photoBtn.classList.remove('loading');return}
@@ -883,7 +958,8 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     return base;
   }
   function render(){
-    pv.textContent=state.text||'Ваша вывеска';
+    var sym=state.extra&&XSYM[state.extra]?' '+XSYM[state.extra]:'';
+    pv.textContent=(state.text||'Ваша вывеска')+sym;
     pv.style.fontFamily=state.font;
     pv.style.fontSize=fontSizeFor()+'px';
     pv.style.textShadow=glow(state.color);
@@ -920,6 +996,13 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     b.addEventListener('click',function(){
       document.querySelector('#sizeRow .active').classList.remove('active');
       b.classList.add('active');state.size=+b.dataset.size;render();
+    });
+  });
+
+  document.querySelectorAll('#xtraRow .xchip').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelector('#xtraRow .active').classList.remove('active');
+      b.classList.add('active');state.extra=b.dataset.x;render();
     });
   });
 
@@ -1085,15 +1168,134 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     toast('ЧБ-контур скачан — можно векторизовать для фрезеровки');
   });
 
-  // ---------- ИИ-эскиз по описанию (через наш сервер) ----------
+  // ---------- ИДЕЯ: интерпретация → SignSpec → цена → эскиз ----------
+  var ideaSpec={text:'',color:'#FF3FA4',font:'script',height_cm:20,extras:[]};
+  var specCard=document.getElementById('ideaSpecCard');
+  var specTextEl=document.getElementById('specText');
+  var specPriceEl=document.getElementById('specPrice');
+  var interpretBtn=document.getElementById('interpretBtn');
   var genBtn=document.getElementById('genIdeaBtn');
-  genBtn.addEventListener('click',async function(){
+  var ideaPriceTimer=null;
+
+  // палитра в карточке — клонируем основную
+  var swIdea=document.getElementById('swatchesIdea');
+  document.querySelectorAll('#swatches .swatch').forEach(function(b){
+    var c=b.cloneNode(true);c.classList.remove('active');
+    c.addEventListener('click',function(){
+      swIdea.querySelectorAll('.swatch').forEach(function(s){s.classList.remove('active')});
+      c.classList.add('active');ideaSpec.color=c.dataset.c;
+      document.documentElement.style.setProperty('--neon',ideaSpec.color);
+    });
+    swIdea.appendChild(c);
+  });
+  function specSetColor(hex){
+    ideaSpec.color=hex;
+    swIdea.querySelectorAll('.swatch').forEach(function(s){
+      s.classList.toggle('active',s.dataset.c===hex);
+    });
+    document.documentElement.style.setProperty('--neon',hex);
+  }
+  document.querySelectorAll('#specSizeRow .size-chip').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelector('#specSizeRow .active').classList.remove('active');
+      b.classList.add('active');ideaSpec.height_cm=+b.dataset.size;updateIdeaPrice();
+    });
+  });
+  function specSetSize(h){
+    ideaSpec.height_cm=h;
+    document.querySelectorAll('#specSizeRow .size-chip').forEach(function(b){
+      b.classList.toggle('active',+b.dataset.size===h);
+    });
+  }
+  // чипы элементов: показываем найденные + популярные, до 3 активных
+  function renderSpecXtras(catalog){
+    var box=document.getElementById('specXtras');box.innerHTML='';
+    var cat=catalog||XCAT;
+    var keys=ideaSpec.extras.slice();
+    ['сердце','звезда','молния','корона','рамка'].forEach(function(k){
+      if(keys.indexOf(k)<0)keys.push(k);
+    });
+    keys.forEach(function(k){
+      var b=document.createElement('button');b.className='xchip';
+      var label=(XSYM[k]?XSYM[k]+' ':'')+(cat[k]||XCAT[k]||k);
+      b.textContent=label;
+      if(ideaSpec.extras.indexOf(k)>=0)b.classList.add('active');
+      b.addEventListener('click',function(){
+        var i=ideaSpec.extras.indexOf(k);
+        if(i>=0)ideaSpec.extras.splice(i,1);
+        else{
+          if(ideaSpec.extras.length>=3){toast('Максимум 3 элемента — так вывеска смотрится чище');return}
+          ideaSpec.extras.push(k);
+        }
+        b.classList.toggle('active');updateIdeaPrice();
+      });
+      box.appendChild(b);
+    });
+  }
+  function updateIdeaPrice(){
+    specPriceEl.textContent='≈ '+fmt(localPrice(ideaSpec.text,ideaSpec.height_cm,ideaSpec.extras))+' ₽';
+    clearTimeout(ideaPriceTimer);
+    ideaPriceTimer=setTimeout(function(){
+      fetch(API+'/price',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({spec:ideaSpec})
+      }).then(function(r){return r.json()}).then(function(d){
+        if(d.price)specPriceEl.textContent=fmt(d.price)+' ₽';
+      }).catch(function(){});
+    },450);
+  }
+  specTextEl.addEventListener('input',function(){ideaSpec.text=this.value;updateIdeaPrice()});
+
+  interpretBtn.addEventListener('click',async function(){
     var idea=document.getElementById('ideaText').value.trim();
-    if(!idea){toast('Сначала опишите идею парой предложений');return}
-    genBtn.classList.add('loading');genBtn.textContent='⏳ Генерируем эскиз…';
+    if(idea.length<3){toast('Сначала опишите идею парой предложений');return}
+    interpretBtn.classList.add('loading');interpretBtn.textContent='⏳ Разбираем описание…';
     try{
+      var r=await fetch(API+'/interpret',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({idea:idea})});
+      var d=await r.json().catch(function(){return{}});
+      if(d.error){toast(d.error)}
+      else if(d.spec){
+        ideaSpec={text:d.spec.text||'',color:d.spec.color||'#FF3FA4',
+                  font:d.spec.font||'script',height_cm:d.spec.height_cm||20,
+                  extras:(d.spec.extras||[]).slice(0,3)};
+        specTextEl.value=ideaSpec.text;
+        specSetColor(ideaSpec.color);
+        specSetSize(ideaSpec.height_cm);
+        renderSpecXtras(d.extras_catalog);
+        // подсказки, если текст не распознан
+        var sr=document.getElementById('suggRow');sr.innerHTML='';
+        if(d.needs_clarification&&d.suggestions&&d.suggestions.length){
+          d.suggestions.forEach(function(s){
+            var b=document.createElement('button');b.className='xchip';b.textContent='«'+s+'»';
+            b.addEventListener('click',function(){
+              specTextEl.value=s;ideaSpec.text=s;updateIdeaPrice();sr.style.display='none';
+            });
+            sr.appendChild(b);
+          });
+          sr.style.display='flex';
+          toast('Не разобрали точный текст надписи — выберите вариант или впишите свой');
+        }else{
+          sr.style.display='none';
+          if(d.needs_clarification)toast('Впишите текст надписи — и цена появится сразу');
+        }
+        specCard.style.display='block';
+        updateIdeaPrice();
+        specCard.scrollIntoView({behavior:'smooth',block:'nearest'});
+      }else{toast('Не получилось разобрать идею — попробуйте ещё раз или отправьте дизайнеру')}
+    }catch(e){
+      toast('Сервер сейчас недоступен — отправьте идею дизайнеру, макет пришлём за 3 часа');
+    }
+    interpretBtn.classList.remove('loading');interpretBtn.textContent='🪄 Понять идею и рассчитать цену';
+  });
+
+  genBtn.addEventListener('click',async function(){
+    if(!ideaSpec.text.trim()){toast('Сначала впишите текст надписи');return}
+    genBtn.classList.add('loading');genBtn.childNodes[0].textContent='⏳ Генерируем эскиз… ';
+    try{
+      var sp=JSON.parse(JSON.stringify(ideaSpec));
+      sp.wall=WALL_NAMES[state.bg]||'кирпичная стена';
       var r=await fetch(API+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({text:idea,color:state.color,wall:'кирпичная стена'})});
+        body:JSON.stringify({spec:sp})});
       var d=await r.json().catch(function(){return{}});
       var img=extractImg(d);
       if(d.error){toast(d.error)}
@@ -1102,11 +1304,23 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
         holder.innerHTML='<img src="'+img+'" style="width:100%;border-radius:14px;display:block">';
         holder.style.display='block';
         document.getElementById('ideaPh').style.display='none';
+        if(typeof d.remaining==='number')
+          document.getElementById('ideaCounter').textContent='(осталось: '+d.remaining+')';
       }else{toast('Не удалось получить изображение — попробуйте ещё раз')}
     }catch(e){
       toast('Автогенерация сейчас недоступна — отправьте описание, дизайнер пришлёт макет за 3 часа');
     }
-    genBtn.classList.remove('loading');genBtn.textContent='✨ Сгенерировать эскиз с ИИ';
+    genBtn.classList.remove('loading');genBtn.childNodes[0].textContent='✨ Сгенерировать эскиз с ИИ ';
+  });
+
+  document.getElementById('orderIdeaBtn').addEventListener('click',function(){
+    if(!ideaSpec.text.trim()){toast('Сначала впишите текст надписи');return}
+    var xt=ideaSpec.extras.map(function(k){return XCAT[k]||k}).join(', ');
+    logOrder({type:'idea-spec',spec:ideaSpec,idea:document.getElementById('ideaText').value.trim(),
+              price:specPriceEl.textContent});
+    sendVia('Здравствуйте! Заказываю вывеску: «'+ideaSpec.text+'», цвет '+ideaSpec.color+
+      ', высота букв '+ideaSpec.height_cm+' см'+(xt?', элементы: '+xt:'')+
+      '. Цена по конструктору: '+specPriceEl.textContent+'. Подтвердите, пожалуйста, заказ.');
   });
 
   // ---------- отправка заявок: Telegram / MAX ----------
@@ -1128,8 +1342,10 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open')});
 
   document.getElementById('sendTextReq').addEventListener('click',function(){
-    logOrder({type:'text',text:state.text,color:state.color,size:state.size,font:state.font,price:priceEl.textContent});
-    sendVia('Здравствуйте! Заказываю вывеску: «'+state.text+'», цвет '+state.color+', высота букв '+state.size+' см. Цена по конструктору: '+priceEl.textContent+'. Подтвердите, пожалуйста, заказ.');
+    logOrder({type:'text',spec:specOfTab1(),text:state.text,color:state.color,size:state.size,font:state.font,price:priceEl.textContent});
+    sendVia('Здравствуйте! Заказываю вывеску: «'+state.text+'», цвет '+state.color+', высота букв '+state.size+' см'+
+      (state.extra?', элемент: '+(XCAT[state.extra]||state.extra):'')+
+      '. Цена по конструктору: '+priceEl.textContent+'. Подтвердите, пожалуйста, заказ.');
   });
   document.getElementById('sendLogoReq').addEventListener('click',function(){
     var ph=document.getElementById('logoPhone').value.trim();
@@ -1142,7 +1358,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     var ph=document.getElementById('ideaPhone').value.trim();
     if(!idea){toast('Опишите идею хотя бы парой слов');return}
     if(!ph){toast('Укажите телефон для связи');return}
-    logOrder({type:'idea',idea:idea,phone:ph});
+    logOrder({type:'idea',idea:idea,phone:ph,spec:ideaSpec.text?ideaSpec:undefined});
     sendVia('Здравствуйте! Идея вывески: '+idea+'. Мой телефон: '+ph);
   });
   document.getElementById('cbSend').addEventListener('click',function(){
