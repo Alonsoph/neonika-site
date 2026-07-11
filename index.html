@@ -15,7 +15,7 @@
 <link rel="canonical" href="https://neonika-rostov.ru/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Неоника — неоновые вывески в Ростове-на-Дону | Гарантия 2 года">
-<meta property="og:description" content="Собственное производство. Неон 2.0 без видимого клея, полная герметизация. Макет и смета бесплатно за 3 часа. Доставка по Ростову и Батайску — 0 ₽.">
+<meta property="og:description" content="Собственное производство. Неон 2.0 без видимого клея, полная герметизация. Фиксированная цена онлайн за 2 минуты — без менеджеров. Доставка по Ростову и Батайску — 0 ₽.">
 <meta property="og:locale" content="ru_RU">
 <script type="application/ld+json">
 {
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Сколько стоит неоновая вывеска в Ростове-на-Дону?", "acceptedAnswer": {"@type": "Answer", "text": "Интерьерная надпись — от 3 000 ₽, витринная вывеска — 7 000–15 000 ₽, фасадная с логотипом — от 18 000 ₽. Макет и точная смета — бесплатно за 3 часа."}},
+    {"@type": "Question", "name": "Сколько стоит неоновая вывеска в Ростове-на-Дону?", "acceptedAnswer": {"@type": "Answer", "text": "Интерьерная надпись — от 3 000 ₽, витринная вывеска — 7 000–15 000 ₽, фасадная с логотипом — от 18 000 ₽. Наберите текст в онлайн-конструкторе — фиксированная финальная цена появится сразу, без менеджера."}},
     {"@type": "Question", "name": "Какая гарантия на неоновую вывеску?", "acceptedAnswer": {"@type": "Answer", "text": "24 месяца на всю конструкцию — вдвое дольше среднего по рынку (6–12 месяцев). Используем силиконовый неон с полной герметизацией и механической фиксацией без клея."}},
     {"@type": "Question", "name": "Есть ли бесплатная доставка?", "acceptedAnswer": {"@type": "Answer", "text": "Да, доставка готовой вывески по Ростову-на-Дону и Батайску бесплатная. Срок изготовления — 3–5 рабочих дней."}}
   ]
@@ -349,16 +349,18 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ====================================================================
-   ТЕКСТУРЫ СТЕН — чтобы заменить фото, просто поменяйте URL внутри url()
-   Рекомендуемый размер: ~800×600, JPEG, пейзажная ориентация
+   ТЕКСТУРЫ СТЕН (фасады). Сейчас — процедурные SVG (кирпич, дерево и т.д.)
+   Чтобы поставить СВОЁ ФОТО стены: замените всё содержимое url(...) на
+   ссылку, например: --tex-brick:url("https://ваш-сайт/кирпич.jpg");
+   Рекомендуемый размер фото: ~800×600, JPEG.
    ==================================================================== */
 :root{
-  --tex-brick:url("https://images.unsplash.com/photo-1584622781564-1d987f7333c1?w=800&q=75&auto=format&fit=crop");
-  --tex-brickw:url("https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=75&auto=format&fit=crop");
-  --tex-wood:url("https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=75&auto=format&fit=crop&sat=-100&bri=-20");
-  --tex-tile:url("https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=75&auto=format&fit=crop");
-  --tex-conc:url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=75&auto=format&fit=crop&sat=-100");
-  --tex-dark:url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=75&auto=format&fit=crop&sat=-100&bri=-40");
+  --tex-brick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240'%3E%3Cdefs%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpattern id='b' width='120' height='64' patternUnits='userSpaceOnUse'%3E%3Crect width='120' height='64' fill='%235a3a30'/%3E%3Crect x='2' y='2' width='56' height='28' rx='1.5' fill='%238f5140'/%3E%3Crect x='62' y='2' width='56' height='28' rx='1.5' fill='%2384483a'/%3E%3Crect x='-28' y='34' width='56' height='28' rx='1.5' fill='%238a4d3d'/%3E%3Crect x='32' y='34' width='56' height='28' rx='1.5' fill='%23935646'/%3E%3Crect x='92' y='34' width='56' height='28' rx='1.5' fill='%237e4536'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23b)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+  --tex-brickw:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240'%3E%3Cdefs%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpattern id='b' width='120' height='64' patternUnits='userSpaceOnUse'%3E%3Crect width='120' height='64' fill='%23c9c4bc'/%3E%3Crect x='2' y='2' width='56' height='28' rx='1.5' fill='%23eeeae3'/%3E%3Crect x='62' y='2' width='56' height='28' rx='1.5' fill='%23e5e0d8'/%3E%3Crect x='-28' y='34' width='56' height='28' rx='1.5' fill='%23e9e4dc'/%3E%3Crect x='32' y='34' width='56' height='28' rx='1.5' fill='%23f1ede6'/%3E%3Crect x='92' y='34' width='56' height='28' rx='1.5' fill='%23e2ddd4'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23b)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  --tex-wood:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240'%3E%3Cdefs%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.35' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpattern id='p' width='180' height='240' patternUnits='userSpaceOnUse'%3E%3Crect width='180' height='240' fill='%234a352a'/%3E%3Crect x='0' width='58' height='240' fill='%236b4c39'/%3E%3Crect x='60' width='58' height='240' fill='%235f4534'/%3E%3Crect x='120' width='58' height='240' fill='%2372543f'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23p)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='0.3'/%3E%3C/svg%3E");
+  --tex-tile:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cdefs%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f4f2ee'/%3E%3Cstop offset='1' stop-color='%23dcd8d1'/%3E%3C/linearGradient%3E%3Cpattern id='t' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Crect width='80' height='80' fill='%23b8b3aa'/%3E%3Crect x='3' y='3' width='74' height='74' rx='2' fill='url(%23g)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23t)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  --tex-conc:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240'%3E%3Cdefs%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.045' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='%238d8d8a'/%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.35'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E");
+  --tex-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240'%3E%3Cdefs%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.045' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='%232a2d33'/%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.18'/%3E%3C/svg%3E");
 }
 
 .preview-box>*{position:relative}
@@ -441,7 +443,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   <div class="wrap">
     <span class="eyebrow">Онлайн-конструктор</span>
     <h2 class="sec-title">Соберите свою вывеску за 2 минуты</h2>
-    <p class="sec-sub">Напишите текст, выберите шрифт и цвет — сразу увидите, как вывеска будет выглядеть на стене, и узнаете ориентировочную цену. Или загрузите логотип — мы бесплатно подготовим макет.</p>
+    <p class="sec-sub">Напишите текст, выберите шрифт и цвет — сразу увидите, как вывеска будет выглядеть на стене, и получите финальную цену без звонков и менеджеров. Или загрузите логотип — бесплатно подготовим макет.</p>
 
     <div class="gen-tabs">
       <button class="gen-tab active" data-tab="text">✍️ Надпись текстом</button>
@@ -513,13 +515,13 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
           </div>
           <div class="pv-meta">
             <div class="pv-price">
-              <small>Ориентировочная стоимость</small>
-              <b id="pvPrice">от 11 300 ₽</b>
+              <small>Фиксированная цена под ключ</small>
+              <b id="pvPrice">11 300 ₽</b>
             </div>
-            <button class="btn btn-neon" id="sendTextReq">Отправить заявку на расчёт</button>
+            <button class="btn btn-neon" id="sendTextReq">Заказать по этой цене</button>
           </div>
           <button class="btn btn-ghost" id="genPhotoBtn" style="width:100%;margin-top:12px">📸 Фотопревью на реальной стене <span id="photoCounter"></span></button>
-          <p class="pv-note">Цена предварительная: точный расчёт зависит от длины неонового контура и подложки. Финальный макет и смету пришлём бесплатно в течение 3 часов в рабочее время.</p>
+          <p class="pv-note">Это финальная цена «под ключ»: изготовление, доставка и подключение по Ростову-на-Дону и Батайску. Никаких «менеджер посчитает» — цена не изменится после заказа.</p>
         </div>
       </div>
       <div id="photoResult" style="display:none;margin-top:18px">
@@ -558,7 +560,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
             <canvas id="logoCanvas" style="display:none;position:relative;max-width:100%;max-height:300px"></canvas>
           </div>
           <div class="dl-row" id="logoDl" style="display:none">
-            <button class="btn btn-ghost" id="dlPreview">⬇ Скачать превью</button>
+            <button class="btn btn-ghost" id="dlPreview" style="display:none">⬇ Скачать превью</button>
             <button class="btn btn-ghost" id="dlContour" style="display:none">⬇ ЧБ-контур для производства</button>
           </div>
           <p class="pv-note">Превью строится по контурам логотипа автоматически. Точную трассировку линий под фрезеровку делает дизайнер в финальном макете.</p>
@@ -629,9 +631,9 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
         <p>Привезём готовую вывеску бесплатно по Ростову-на-Дону и Батайску. Поможем с монтажом и подключением.</p>
       </div>
       <div class="adv">
-        <div class="num">3 часа</div>
-        <h3>Макет и смета бесплатно</h3>
-        <p>Присылаете текст или логотип — в течение 3 часов в рабочее время получаете визуализацию и точную цену.</p>
+        <div class="num">2 мин</div>
+        <h3>Фиксированная цена сразу</h3>
+        <p>Наберите текст в конструкторе — увидите финальную цену мгновенно. У конкурентов: «оставьте заявку, менеджер посчитает». У нас цена не меняется после заказа.</p>
       </div>
     </div>
   </div>
@@ -706,7 +708,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     <div style="margin-top:36px">
       <details class="faq-item">
         <summary>Сколько стоит неоновая вывеска?</summary>
-        <div class="faq-body">Небольшая интерьерная надпись — от 3 000 ₽. Витринная вывеска среднего размера — 7 000–15 000 ₽. Фасадная с логотипом — от 18 000 ₽. Точная цена зависит от длины неонового контура: соберите макет в конструкторе выше, и мы пришлём смету бесплатно.</div>
+        <div class="faq-body">Небольшая интерьерная надпись — от 3 000 ₽. Витринная вывеска среднего размера — 7 000–15 000 ₽. Фасадная с логотипом — от 18 000 ₽. Наберите текст в конструкторе выше — и увидите фиксированную финальную цену сразу, без ожидания менеджера. Для вывесок по логотипу точную цену пришлём бесплатно в течение 3 часов.</div>
       </details>
       <details class="faq-item">
         <summary>Почему у вас гарантия 2 года, а у других 6–12 месяцев?</summary>
@@ -810,7 +812,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     var chars=state.text.replace(/\s/g,'').length||1;
     var per={15:340,20:480,30:720}[state.size];
     var total=Math.max(3000,1800+chars*per);
-    return 'от '+fmt(Math.round(total/100)*100)+' ₽';
+    return '≈ '+fmt(Math.round(total/100)*100)+' ₽';
   }
   function calcPrice(){return calcPriceFallback()}
   function fetchServerPrice(){
@@ -821,12 +823,22 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       fetch(API+'/price',{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({chars:chars,per_char:per,base:1800,min:3000})
       }).then(function(r){return r.json()}).then(function(d){
-        if(d.price) priceEl.textContent='от '+fmt(d.price)+' ₽';
+        if(d.price) priceEl.textContent=fmt(d.price)+' ₽';
       }).catch(function(){});
     },450);
   }
 
   // --- фотопревью с ИИ ---
+  // Сервер может вернуть поле url / image / output — берём любое
+  function extractImg(d){
+    if(!d) return null;
+    if(typeof d==='string') return d;
+    if(d.url) return d.url;
+    if(d.image) return d.image.indexOf('data:')===0||d.image.indexOf('http')===0?d.image:'data:image/png;base64,'+d.image;
+    if(d.output) return Array.isArray(d.output)?d.output[0]:d.output;
+    if(Array.isArray(d)&&d[0]) return d[0];
+    return null;
+  }
   var photoBtn=document.getElementById('genPhotoBtn');
   var photoCounter=document.getElementById('photoCounter');
   var photoImg=document.getElementById('photoImg');
@@ -844,10 +856,15 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       var r=await fetch(API+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({text:state.text,color:state.color,wall:bgNames[state.bg]||'кирпичная стена'})
       });
-      var d=await r.json();
+      var d=await r.json().catch(function(){return{}});
       if(d.error){toast(d.error);photoBtn.childNodes[0].textContent='📸 Фотопревью на реальной стене ';photoBtn.classList.remove('loading');return}
-      if(d.url){photoImg.src=d.url;photoBox.style.display='block';
-        window.scrollTo({top:photoBox.offsetTop-80,behavior:'smooth'})}
+      var img=extractImg(d);
+      if(img){
+        photoImg.onload=function(){photoBox.style.display='block';
+          window.scrollTo({top:photoBox.offsetTop-80,behavior:'smooth'})};
+        photoImg.onerror=function(){toast('Изображение не загрузилось — попробуйте ещё раз')};
+        photoImg.src=img;
+      }else if(!d.error){toast('Сервер не вернул изображение — попробуйте ещё раз')}
       photoBtn.childNodes[0].textContent='📸 Фотопревью ';
       if(typeof d.remaining==='number') photoCounter.textContent='(осталось: '+d.remaining+')';
     }catch(e){toast('Сервер генерации недоступен — попробуйте позже');photoBtn.childNodes[0].textContent='📸 Фотопревью на реальной стене '}
@@ -952,7 +969,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
         renderNeonLogo();
         document.getElementById('logoPlaceholder').style.display='none';
         logoCanvas.style.display='block';
-        document.getElementById('logoDl').style.display='flex';
+        if(IS_MASTER) document.getElementById('logoDl').style.display='flex';
       };
       img.src=r.result;
     };
@@ -1068,40 +1085,24 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     toast('ЧБ-контур скачан — можно векторизовать для фрезеровки');
   });
 
-  // ---------- ИИ-эскиз по описанию ----------
+  // ---------- ИИ-эскиз по описанию (через наш сервер) ----------
   var genBtn=document.getElementById('genIdeaBtn');
   genBtn.addEventListener('click',async function(){
     var idea=document.getElementById('ideaText').value.trim();
     if(!idea){toast('Сначала опишите идею парой предложений');return}
-    genBtn.classList.add('loading');genBtn.textContent='Генерируем эскиз…';
+    genBtn.classList.add('loading');genBtn.textContent='⏳ Генерируем эскиз…';
     try{
-      var resp=await fetch('https://api.anthropic.com/v1/messages',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-          model:'claude-sonnet-4-6',
-          max_tokens:1000,
-          messages:[{role:'user',content:
-            'Ты дизайнер неоновых вывесок. Нарисуй эскиз неоновой вывески по описанию клиента в виде SVG. '+
-            'Требования: ответь ТОЛЬКО кодом SVG без markdown и пояснений; viewBox="0 0 600 300"; прозрачный фон; '+
-            'все линии в стиле неоновых трубок: fill="none", stroke-linecap="round", stroke-linejoin="round"; '+
-            'для свечения рисуй каждый элемент 3 слоями: широкий stroke (12px) цветом с opacity 0.35, средний stroke (5px) цветом, тонкий stroke (2px) белым; '+
-            'текст рисуй элементом <text> с font-family="cursive" font-size 48-72, тем же трёхслойным способом (атрибуты stroke и fill="none" для слоёв, верхний слой fill белый без stroke); '+
-            'основной цвет: '+state.color+'; уложись в компактный код. Описание клиента: '+idea}]
-        })
-      });
-      var data=await resp.json();
-      var text=(data.content||[]).map(function(i){return i.text||''}).join('');
-      text=text.replace(/```(svg|xml|html)?/g,'').trim();
-      var i0=text.indexOf('<svg');
-      if(i0<0) throw new Error('no svg');
-      text=text.slice(i0);
-      if(!/</.test(text)) throw new Error('bad');
-      text=text.replace(/<script[\s\S]*?<\/script>/gi,'');
-      var holder=document.getElementById('ideaSvg');
-      holder.innerHTML=text;
-      holder.style.display='block';
-      document.getElementById('ideaPh').style.display='none';
+      var r=await fetch(API+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({text:idea,color:state.color,wall:'кирпичная стена'})});
+      var d=await r.json().catch(function(){return{}});
+      var img=extractImg(d);
+      if(d.error){toast(d.error)}
+      else if(img){
+        var holder=document.getElementById('ideaSvg');
+        holder.innerHTML='<img src="'+img+'" style="width:100%;border-radius:14px;display:block">';
+        holder.style.display='block';
+        document.getElementById('ideaPh').style.display='none';
+      }else{toast('Не удалось получить изображение — попробуйте ещё раз')}
     }catch(e){
       toast('Автогенерация сейчас недоступна — отправьте описание, дизайнер пришлёт макет за 3 часа');
     }
@@ -1127,8 +1128,8 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open')});
 
   document.getElementById('sendTextReq').addEventListener('click',function(){
-    logOrder({type:'text',text:state.text,color:state.color,size:state.size,font:state.font});
-    sendVia('Здравствуйте! Хочу вывеску: «'+state.text+'», цвет '+state.color+', высота букв '+state.size+' см. Пришлите, пожалуйста, макет и точную цену.');
+    logOrder({type:'text',text:state.text,color:state.color,size:state.size,font:state.font,price:priceEl.textContent});
+    sendVia('Здравствуйте! Заказываю вывеску: «'+state.text+'», цвет '+state.color+', высота букв '+state.size+' см. Цена по конструктору: '+priceEl.textContent+'. Подтвердите, пожалуйста, заказ.');
   });
   document.getElementById('sendLogoReq').addEventListener('click',function(){
     var ph=document.getElementById('logoPhone').value.trim();
@@ -1159,9 +1160,11 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     clearTimeout(toastT);toastT=setTimeout(function(){toastEl.classList.remove('show')},3400);
   }
 
-  // Режим мастера: ЧБ-контур для производства виден только владельцу.
-  // Откройте сайт с параметром ?master=neon чтобы увидеть кнопку.
-  if(/[?&]master=neon/.test(location.search)){
+  // Режим мастера: кнопки скачивания (превью + ЧБ-контур) видны только владельцу.
+  // Откройте сайт с параметром ?master=neon чтобы увидеть их.
+  var IS_MASTER=/[?&]master=neon/.test(location.search);
+  if(IS_MASTER){
+    document.getElementById('dlPreview').style.display='inline-block';
     document.getElementById('dlContour').style.display='inline-block';
   }
 
